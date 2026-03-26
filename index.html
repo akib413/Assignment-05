@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title and Favicon -->
+    <title>GitHub Issues Tracker</title>
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+    <!-- Tailwind CSS  -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Css style -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <!-- GitHub issues tracker login form  -->
+    <div class="hero bg-base-200 min-h-screen">
+        <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-xl">
+            <div class="logo mx-auto">
+                <img class="mx-auto py-5" src="./assets/github-logo.png" alt="">
+                <h1 class="text-center font-semibold text-2xl">GitHub Issues Tracker</h1>
+                <p class="text-center text-[#64748B]">Sign in to manage your issues</p>
+            </div>
+            <div class="card-body">
+                <fieldset class="fieldset">
+                    <div class="userName pb-2">
+                        <label class="label font-medium text-[#1F2937] text-[16px] pb-2">Username</label>
+                        <input id="userName" type="text" class="input" placeholder="Enter Username" />
+                        <p class="text-[14px] text-[#4A00FF] pt-1">Default: admin</p>
+                    </div>
+                    <div class="password">
+                        <label class="label font-medium text-[#1F2937] text-[16px] pb-2">Password</label>
+                        <input id="password" type="password" class="input" placeholder="Enter Password" />
+                        <p class="text-[14px] text-[#4A00FF] pt-1">Default: admin123</p>
+                    </div>
+                    <button id="login-btn" onclick="login()"
+                        class="btn btn-neutral mt-4 bg-[#4A00FF] rounded-lg border-[#4A00FF]">Login</button>
+                    <p class="text-center text-[16px] py-2">OR</p>
+                    <p class="text-center text-[14px] py-1 text-[#64748B]">Demo Credentials:</p>
+                    <div class="text-center bg-[#F8FAFC] p-6">
+                        <p class="font-semibold">Username: <span class="font-normal">admin</span></p>
+                        <p class="font-semibold">Password: <span class="font-normal">admin123</span></p>
+                    </div>
+                    <!-- Open the modal using ID.showModal() method -->
+                    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+                    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                        <div class="modal-box">
+                            <h3 class="font-bold text-2xl">Please use:</h3>
+                            <p class="py-4 text-lg">Username: admin <br> Password: admin123</p>
+                            <div class="modal-action">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button class="btn">OK</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="all_js/script.js"></script>
+
+</body>
+
+</html>

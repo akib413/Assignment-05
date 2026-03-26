@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title and Favicon -->
+    <title>GitHub Issues Tracker | Home</title>
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+    <!-- Tailwind CSS  -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font-awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Css style -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <!-- Nav section -->
+    <div class="navbar bg-base-100 shadow-sm">
+        <div class="flex-1">
+            <div class="logo-title-icon flex items-center">
+                <div class="logo-icon">
+                <img class="w-[36px]" src="assets/github-logo.png" alt="">
+            </div>
+            <div class="logo-title">
+                <p class="btn btn-ghost text-xl">GitHub Issues Tracker</p>
+            </div>
+            </div>
+            
+        </div>
+        <div class="flex gap-2">
+            <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+            <div class="dropdown dropdown-end">
+                <button class="btn btn-primary">New Issue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main section  -->
+    <section class="main-section bg-[#F8FAFC] pt-15 pb-15">
+        <div class="btn-section w-10/12 mx-auto p-6 bg-white">
+            <button id="all-btn" onclick="allIssues()" class="btn">All</button>
+            <button id="open-btn" onclick="showOpenIssues()" class="btn" >Open</button>
+            <button id="closed-btn" onclick="showClosedIssues()" class="btn">Closed</button>
+        </div>
+
+        <div class="total-issues mt-5 w-10/12 mx-auto p-6 bg-white flex justify-between items-center">
+            <div class="icon-issue flex justify-between gap-2 items-center">
+                <div class="w-[50px] h-[50px] flex items-center rounded-full bg-[#ECE4FF]">
+                    <img class="mx-auto" src="./assets/Aperture.png" alt="">
+                </div>
+                <div class="issue-count-description">
+                    <p id="count-issues" class="issue-count font-semibold text-[20px]">50 Issues</p>
+                    <p class="description text-[16px] text-[#64748B]">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="open-closed flex justify-between gap-2">
+                <div class="open"><i class="fa-solid fa-circle text-[#00A96E]"></i> Open</div>
+                <div class="closed"><i class="fa-solid fa-circle text-[#A855F7]"></i> Closed</div>
+            </div>
+        </div>
+
+        <hr class="w-10/12 mx-auto text-[#ddd]">
+
+        <div id="all-issues" class="pt-7 w-10/12 mx-auto p-6 bg-white grid grid-cols-4 gap-5">
+             
+        </div>
+    </section>
+
+    <script src="all_js/main.js"></script>
+</body>
+
+</html>
