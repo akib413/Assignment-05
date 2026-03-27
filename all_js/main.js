@@ -61,21 +61,21 @@ const showAllInformation = (issue) => {
             <p class="author text-[12px] text-[#64748B]">Opened by ${issue.author}</p>
             <p class="date text-[12px] text-[#64748B]">${issue.createdAt}</p>
         </div>
-         <div class="bug-help flex gap-2">
-            <p class="bug flex items-center text-[12px] font-medium text-[#EF4444] bg-[#FEECEC] rounded-full border-[#FECACA] uppercase"><i class="fa-solid fa-bug"></i>Bug</p>
-            <p class="bug flex items-center text-[12px] font-medium text-[#D97706] bg-[#FFF8DB] rounded-full border-[#FDE68A] uppercase"><i class="fa-solid fa-life-ring"></i>help wanted</p>
-        </div>
+        <div class="bug-help-btn flex gap-2">
+                    <p class="bug flex items-center text-[12px] font-medium text-[#EF4444] bg-[#FEECEC] rounded-full border-[#FECACA] uppercase"><i class="fa-solid fa-bug"></i>${issue.labels[0]}</p>
+                    <p class="bug flex items-center text-[12px] font-medium text-[#D97706] bg-[#FFF8DB] rounded-full border-[#FDE68A] uppercase">${issue.labels[1] ? '<i class="fa-solid fa-life-ring"></i>' + issue.labels[1] : ''}</p>
+                </div>
         <div class="description">
-            <p class="text-[16px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+            <p class="text-[16px] text-[#64748B]">${issue.description}</p>
         </div>
         <div class="assignee-priority flex bg-[#F8FAFC] p-[16px] gap-28 rounded-lg">
             <div class="assigne">
                 <p class="text-[#64748B] text-[16px]">Assignee:</p>
-                <p class="font-semibold text-[16px]">Fahim Ahmed</p>
+                <p class="font-semibold text-[16px]">${issue.assignee}</p>
             </div>
             <div class="priority">
                 <p class="text-[#64748B] text-[16px]">Priority:</p>
-                <p class="text-[12px] font-medium px-3 py-1 rounded-full uppercase text-[#FFFFFF] bg-[#EF4444]">Opened</p> 
+                <p class="text-[12px] font-medium px-5 py-1 rounded-full uppercase ${issue.priority === 'high' ? 'text-[#FEECEC] bg-[#EF4444]' : issue.priority === 'medium' ? 'text-[#FFF6D1] bg-[#F59E0B]' : 'text-[#EEEFF2] bg-[#9CA3AF]'}">${issue.priority}</p> 
             </div>
         </div>
     `
