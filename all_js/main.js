@@ -1,4 +1,5 @@
 let allIssuesData = []
+
 const allIssues = () => {
     const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues'
 
@@ -96,4 +97,15 @@ const showClosedIssues = () => {
     const closedIssues = allIssuesData.filter(issue => issue.status === 'closed')
 
     showAllIssue(closedIssues)
+}
+
+const showModal = (id) => {
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+    fetch(url)
+    .then((res) => res.json())
+    .then((data) => showAllInformation(data.data))
+}
+
+const showAllInformation = () => {
+    
 }
