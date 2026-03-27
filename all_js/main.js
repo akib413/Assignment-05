@@ -22,12 +22,14 @@ const manageSpinner = (status) => {
     }
 }
 
-const showModal = (id) => {
+const showModal = async (id) => {
     manageSpinner(true)
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => showAllInformation(data.data))
+
+    const res = await fetch(url)
+    const details = await res.json()
+    showAllInformation(details.data)
+    manageSpinner(false)
 }
 
 const showAllInformation = (issue) => {
