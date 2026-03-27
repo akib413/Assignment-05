@@ -12,46 +12,26 @@ const allIssues = () => {
         })
 }
 
-// {
-//     "id": 1,
-//     "title": "Fix navigation menu on mobile devices",
-//     "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-//     "status": "open",
-//     "labels": [
-//         "bug",
-//         "help wanted"
-//     ],
-//     "priority": "high",
-//     "author": "john_doe",
-//     "assignee": "jane_smith",
-//     "createdAt": "2024-01-15T10:30:00Z",
-//     "updatedAt": "2024-01-15T10:30:00Z"
-// }
-
-
+const manageSpinner = (status) => {
+    if (status == true) {
+        document.getElementById('spinner').classList.remove('hidden')
+        document.getElementById('all-issues').classList.add('hidden')
+    } else {
+        document.getElementById('all-issues').classList.remove('hidden')
+        document.getElementById('spinner').classList.add('hidden')
+    }
+}
 
 const showModal = (id) => {
+    manageSpinner(true)
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
     fetch(url)
         .then((res) => res.json())
         .then((data) => showAllInformation(data.data))
 }
 
-// "id": 33,
-// "title": "Add bulk operations support",
-// "description": "Allow users to perform bulk actions like delete, update status on multiple items at once.",
-// "status": "open",
-// "labels": [
-// "enhancement"
-// ],
-// "priority": "low",
-// "author": "bulk_barry",
-// "assignee": "",
-// "createdAt": "2024-02-02T10:00:00Z",
-// "updatedAt": "2024-02-02T10:00:00Z"
-// }
-
 const showAllInformation = (issue) => {
+    manageSpinner(true)
     console.log(issue)
     const detailsInformation = document.getElementById('details-information')
     detailsInformation.innerHTML = `
@@ -80,6 +60,8 @@ const showAllInformation = (issue) => {
         </div>
     `
     document.getElementById("my_modal_5").showModal()
+
+    manageSpinner(false)
 }
 
 const setActiveButton = (btnId) => {
