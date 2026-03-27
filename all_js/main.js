@@ -31,7 +31,6 @@ const showModal = (id) => {
 }
 
 const showAllInformation = (issue) => {
-    manageSpinner(true)
     console.log(issue)
     const detailsInformation = document.getElementById('details-information')
     detailsInformation.innerHTML = `
@@ -60,8 +59,6 @@ const showAllInformation = (issue) => {
         </div>
     `
     document.getElementById("my_modal_5").showModal()
-
-    manageSpinner(false)
 }
 
 const setActiveButton = (btnId) => {
@@ -134,3 +131,20 @@ const showClosedIssues = () => {
 
     showAllIssue(closedIssues)
 }
+
+document.getElementById('btn-search').addEventListener('click', () => {
+    manageSpinner(true)
+    const input = document.getElementById('input-search')
+    const searchValue = input.value.trim().toLowerCase()
+    console.log(searchValue)
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+        .then((res) => res.json())
+        .then((data) => {
+            const allWords = data.data
+            console.log(allWords)
+            const filterWords = allWords.filter((issue) => issue.title.toLowerCase().includes(searchValue))
+            showAllIssue(filterWords)
+        })
+        manageSpinner(false)
+})
