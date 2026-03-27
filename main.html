@@ -17,7 +17,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <!-- Font-awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Css style -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -29,13 +31,13 @@
         <div class="flex-1">
             <div class="logo-title-icon flex items-center">
                 <div class="logo-icon">
-                <img class="w-[36px]" src="assets/github-logo.png" alt="">
+                    <img class="w-[36px]" src="assets/github-logo.png" alt="">
+                </div>
+                <div class="logo-title">
+                    <p class="btn btn-ghost text-xl">GitHub Issues Tracker</p>
+                </div>
             </div>
-            <div class="logo-title">
-                <p class="btn btn-ghost text-xl">GitHub Issues Tracker</p>
-            </div>
-            </div>
-            
+
         </div>
         <div class="flex gap-2">
             <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
@@ -49,7 +51,7 @@
     <section class="main-section bg-[#F8FAFC] pt-15 pb-15">
         <div class="btn-section w-10/12 mx-auto p-6 bg-white">
             <button id="all-btn" onclick="allIssues()" class="btn">All</button>
-            <button id="open-btn" onclick="showOpenIssues()" class="btn" >Open</button>
+            <button id="open-btn" onclick="showOpenIssues()" class="btn">Open</button>
             <button id="closed-btn" onclick="showClosedIssues()" class="btn">Closed</button>
         </div>
 
@@ -72,9 +74,47 @@
         <hr class="w-10/12 mx-auto text-[#ddd]">
 
         <div id="all-issues" class="pt-7 w-10/12 mx-auto p-6 bg-white grid grid-cols-4 gap-5">
-             
+
         </div>
     </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div class="title-status-author-date">
+                <p>Fix broken image uploads</p>
+                <div class="status-author-date">
+                    <p class="text-[12px] font-medium px-5 py-1 rounded-full uppercase text-[#EF4444] bg-[#FEECEC]">Opened</p>
+                    <p class="author">Opened by Fahim Ahmed</p>
+                    <p class="date">22/02/2026</p>
+                </div>
+                <div class="bug-help">
+                    <p class="bug flex items-center text-[12px] font-medium text-[#EF4444] bg-[#FEECEC] rounded-full border-[#FECACA] uppercase"><i class="fa-solid fa-bug"></i>Bug</p>
+                    <p class="bug flex items-center text-[12px] font-medium text-[#D97706] bg-[#FFF8DB] rounded-full border-[#FDE68A] uppercase"><i class="fa-solid fa-life-ring"></i>help wanted</p>
+                </div>
+                <div class="description">
+                    <p>The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+                </div>
+                <div class="assignee-priority">
+                    <div class="assigne">
+                        <p>Assignee:</p>
+                        <p>Fahim Ahmed</p>
+                    </div>
+                    <div class="priority">
+                        <p>Priority:</p>
+                        <p class="text-[12px] font-medium px-5 py-1 rounded-full uppercase text-[#EF4444] bg-[#FEECEC]">Opened</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
     <script src="all_js/main.js"></script>
 </body>
